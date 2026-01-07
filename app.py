@@ -138,7 +138,7 @@ def main():
 
     # 4. Submit Button
     st.markdown("---")
-    submit = st.button("Submit Inquiry", use_container_width=True,key=f"download_{model})
+    submit = st.button("Submit Inquiry", use_container_width=True)
 
     # 5. Submission Logic (核心修改：解析唯一key，还原车型名)
     if submit:
@@ -221,7 +221,8 @@ def show_thank_you_page():
                             data=f,
                             file_name=pdf_filename,  # 下载文件名=配置的PDF原始名
                             mime="application/pdf",
-                            use_container_width=True
+                            use_container_width=True,
+                            key=f"download_{model}
                         )
                 except FileNotFoundError:
                     st.warning(f"⚠️ {pdf_filename} not found! Please check if the file is uploaded correctly.")
