@@ -138,7 +138,7 @@ def main():
 
     # 4. Submit Button
     st.markdown("---")
-    submit = st.button("Submit Inquiry", use_container_width=True)
+    submit = st.button("Submit Inquiry", use_container_width=True,key=f"download_{model})
 
     # 5. Submission Logic (核心修改：解析唯一key，还原车型名)
     if submit:
