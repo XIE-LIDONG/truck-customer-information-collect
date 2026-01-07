@@ -217,7 +217,7 @@ def show_thank_you_page():
                 try:
                     with open(pdf_filename, "rb") as f:
                         st.download_button(
-                            label=f"📥 Download {model} Details",
+                            label=f"📥 Download {pdf_filename}",
                             data=f,
                             file_name=pdf_filename,  # 下载文件名=配置的PDF原始名
                             mime="application/pdf",
