@@ -12,24 +12,51 @@ import os
 #     },
 #     ...
 # }
+# ---------------------- 核心配置（仅需修改这个字典！） ----------------------
 CAR_PDF_MASTER = {
-    # 示例：4*2牵引车（后续新增/删除/修改都在这里操作）
-    "4*2牵引车": {
-        "high roof Standard leafspfing 420HP": "JH6_4x2 AMT_High_Roof_Standard_Tractorhead_Leafspring_420HP.pdf",
-        "low roof Standard leafspfing 400HP": "JH6_4x2_AMT_Low_Roof_400HP.pdf"  # 新增的二级车型
+    # 1. 4x2 Tractor (4*2牵引车)
+    "4x2 Tractor": {
+        "AMT High Roof Standard (Leaf Spring) 420HP": "JH6_4x2 AMT_High_Roof_Standard_Tractor_Leaf_spring_420HP.pdf",
+        "AMT Flat Roof Multifunction (Leaf Spring) 420HP": "JH6_4x2_AMT_Flat_Roof_Multifunction_Tractor_Leaf_Spring_420HP.pdf",
+        "AMT High Roof Multifunction (Leaf Spring) 420HP": "JH6_4x2_AMT_High_Roof_Multifunction_Tractor_Leaf_Spring_420HP.pdf",
+        "AMT High Roof Standard (Air Suspension) 420HP": "JH6_4x2_AMT_High_Roof_Standard_Tractor_Air_Suspension_420HP.pdf",
+        "AMT High Roof Standard (Air Suspension) 460HP": "JH6_4x2_AMT_High_Roof_Standard_Tractor_Air_Suspension_460HP.pdf",
+        "MT Flat Roof Heavy Duty (Leaf Spring) 420HP (Double Reduction)": "JH6_4x2_MT_Flat_Roof_Heavy_Duty_Tractor_Leaf_Spring_420HP_Double_Reduction.pdf",
+        "MT Flat Roof Multifunction (Leaf Spring) 420HP": "JH6_4x2_MT_Flat_Roof_Multifunction_Tractor_Leaf_Spring_420HP.pdf"
     },
-    # 示例：新增“皮卡车”一级车型（只需加这一段，页面自动显示）
-    "皮卡车": {
-        "2.0T 两驱豪华版": "Pickup_2.0T_2WD_Luxury.pdf",
-        "2.0T 四驱旗舰版": "Pickup_2.0T_4WD_Flagship.pdf"
+
+    # 2. 6x4 Tractor (6*4牵引车)
+    "6x4 Tractor": {
+        "MT Standard (315 Tire)": "JH6_6x4_MT_Tractor_315_Tire.pdf",
+        "MT Standard 420HP": "JH6_6x4_MT_Tractor_420HP.pdf",
+        "MT Standard 550HP": "JH6_6x4_MT_Tractor_550HP.pdf"
     },
-    # 保留原有其他车型（可按需修改/删除）
-    "6*4牵引车": {
-        "6*4 解放J6P牵引车": "6x4_J6P.pdf",
-        "6*4 解放JH6牵引车": "6x4_JH6.pdf"
+
+    # 3. 6x4 Dumper (6*4自卸车)
+    "6x4 Dumper": {
+        "MT Standard 390HP": "JH6_6x4_MT_Dumper_390HP.pdf",
+        "MT Standard 420HP": "JH6_6x4_MT_Dumper_420HP.pdf"
     },
-    "水车": {
-        "12方水车": "12f_Shuiche.pdf"
+
+    # 4. 6x4 Water Tanker (6*4水车)
+    "6x4 Water Tanker": {
+        "MT Standard 390HP": "JH6_6x4_MT_Water_Tanker_390HP.pdf"
+    },
+
+    # 5. 6x4 Boom Crane (6*4随车吊)
+    "6x4 Boom Crane": {
+        "MT Standard 390HP": "JH6_6x4_MT_Boom_Crane_390HP.pdf"
+    },
+
+    # 6. 8x4 Dumper (8*4自卸车)
+    "8x4 Dumper": {
+        "MT Standard 390HP": "JH6_8x4_MT_Dumper_390HP.pdf",
+        "MT Standard 420HP": "JH6_8x4_MT_Dumper_420HP.pdf"
+    },
+
+    # 7. 8x4 Mixer (8*4搅拌车)
+    "8x4 Mixer": {
+        "MT Standard 390HP": "JH6_8x4_MT_Mixer_390HP.pdf"
     }
 }
 
