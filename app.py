@@ -15,7 +15,7 @@ CAR_PDF_MASTER = {
         "MT Flat Roof Multifunction (Leaf Spring) 420HP": "JH6_4x2_MT_Flat_Roof_Multifunction_Tractor_Leaf_Spring_420HP.pdf"
         "MT Flat Roof Heavy Duty (Leaf Spring) 420HP (Double Reduction)": "JH6_4x2_MT_Flat_Roof_Heavy_Duty_Tractor_Leaf_Spring_420HP_Double_Reduction.pdf",
         
-    },
+    }
 
     # 2. 6x4 Tractor
     "6x4 Tractor": {
