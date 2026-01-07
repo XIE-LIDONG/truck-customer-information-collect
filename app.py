@@ -99,17 +99,17 @@ def main():
 
     # Show form page if not submitted
     st.set_page_config(page_title="FAW Vehicle Inquiry Form", page_icon="🚛", layout="centered")
-    st.title("🚛 FAW Vehicle Inquiry Form")
+    st.title(" ALQAFLA&FAW Truck Form")
     st.divider()
 
     # 1. Basic Information
     c_name = st.text_input("1. Company Name *", placeholder="Full name of your company")
-    u_name = st.text_input("2. Contact Person", placeholder="Your name")
+    u_name = st.text_input("2. Your Name", placeholder="Your name")
     phone = st.text_input("3. Contact Phone *", placeholder="Mobile/landline number")
     addr = st.text_area("4. Company Address", placeholder="Detailed address", height=100)
 
     # 2. Main Model Selection (auto read from MAIN_MODELS)
-    st.markdown("### 5. Intended Vehicle Categories (Check applicable)")
+    st.markdown("### 5. Which truck categories are you interested in?")
     cols = st.columns(3)
     for idx, m in enumerate(MAIN_MODELS):
         with cols[idx%3]:
@@ -121,7 +121,7 @@ def main():
 
     # 3. Sub-model & Quantity (auto read from CAR_CONFIG)
     if st.session_state.selected_main:
-        st.markdown("### 5.1 Specific Models & Quantity (Default: 0)")
+        st.markdown("### 5.1 Specific Models & Quantity ")
         st.markdown("---")
         for m in st.session_state.selected_main:
             st.subheader(m)
