@@ -129,7 +129,7 @@ def main():
                 if s not in st.session_state.submodel_qty:
                     st.session_state.submodel_qty[s] = 0
                 col1, col2 = st.columns([4,1])
-                with col1: st.write(f"📌 {s}")
+                
                 with col2:
                     q = st.number_input(
                         f"{s} Quantity", min_value=0, value=st.session_state.submodel_qty[s], step=1, key=f"q_{s}"
