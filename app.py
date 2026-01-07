@@ -7,47 +7,47 @@ import os
 CAR_PDF_MASTER = {
     # 1. 4x2 Tractor
     "4x2 Tractor": {
-        "AMT High Roof Standard (Leaf Spring) 420HP": "JH6_4x2 AMT_High_Roof_Standard_Tractor_Leaf_spring_420HP.pdf",
-        "AMT High Roof Standard (Air Suspension) 420HP": "JH6_4x2_AMT_High_Roof_Standard_Tractor_Air_Suspension_420HP.pdf",
-        "AMT High Roof Standard (Air Suspension) 460HP": "JH6_4x2_AMT_High_Roof_Standard_Tractor_Air_Suspension_460HP.pdf",
-        "AMT Flat Roof Multifunction (Leaf Spring) 420HP": "JH6_4x2_AMT_Flat_Roof_Multifunction_Tractor_Leaf_Spring_420HP.pdf",
-        "AMT High Roof Multifunction (Leaf Spring) 420HP": "JH6_4x2_AMT_High_Roof_Multifunction_Tractor_Leaf_Spring_420HP.pdf",
-        "MT Flat Roof Multifunction (Leaf Spring) 420HP": "JH6_4x2_MT_Flat_Roof_Multifunction_Tractor_Leaf_Spring_420HP.pdf",  # 核心修复：加了逗号
-        "MT Flat Roof Heavy Duty (Leaf Spring) 420HP (Double Reduction)": "JH6_4x2_MT_Flat_Roof_Heavy_Duty_Tractor_Leaf_Spring_420HP_Double_Reduction.pdf",
+        "4x2 Tractor AMT High Roof Standard (Leaf Spring) 420HP": "JH6_4x2 AMT_High_Roof_Standard_Tractor_Leaf_spring_420HP.pdf",
+        "4x2 Tractor AMT High Roof Standard (Air Suspension) 420HP": "JH6_4x2_AMT_High_Roof_Standard_Tractor_Air_Suspension_420HP.pdf",
+        "4x2 Tractor AMT High Roof Standard (Air Suspension) 460HP": "JH6_4x2_AMT_High_Roof_Standard_Tractor_Air_Suspension_460HP.pdf",
+        "4x2 Tractor AMT Flat Roof Multifunction (Leaf Spring) 420HP": "JH6_4x2_AMT_Flat_Roof_Multifunction_Tractor_Leaf_Spring_420HP.pdf",
+        "4x2 Tractor AMT High Roof Multifunction (Leaf Spring) 420HP": "JH6_4x2_AMT_High_Roof_Multifunction_Tractor_Leaf_Spring_420HP.pdf",
+        "4x2 Tractor MT Flat Roof Multifunction (Leaf Spring) 420HP": "JH6_4x2_MT_Flat_Roof_Multifunction_Tractor_Leaf_Spring_420HP.pdf",  # 核心修复：加了逗号
+        "4x2 Tractor MT Flat Roof Heavy Duty (Leaf Spring) 420HP (Double Reduction)": "JH6_4x2_MT_Flat_Roof_Heavy_Duty_Tractor_Leaf_Spring_420HP_Double_Reduction.pdf",
     },
 
     # 2. 6x4 Tractor
     "6x4 Tractor": {
-        "MT Standard (315 Tire)": "JH6_6x4_MT_Tractor_315_Tire.pdf",
-        "MT Standard 420HP": "JH6_6x4_MT_Tractor_420HP.pdf",
-        "MT Standard 550HP": "JH6_6x4_MT_Tractor_550HP.pdf"
+        "6x4 Tractor MT (315 Tire)": "JH6_6x4_MT_Tractor_315_Tire.pdf",
+        "6x4 Tractor MT 420HP": "JH6_6x4_MT_Tractor_420HP.pdf",
+        "6x4 Tractor MT 550HP": "JH6_6x4_MT_Tractor_550HP.pdf"
     },
 
     # 3. 6x4 Dumper
     "6x4 Dumper": {
-        "MT Standard 390HP": "JH6_6x4_MT_Dumper_390HP.pdf",
-        "MT Standard 420HP": "JH6_6x4_MT_Dumper_420HP.pdf"
+        "6x4 Dumper MT 390HP": "JH6_6x4_MT_Dumper_390HP.pdf",
+        "6x4 Dumper MT 420HP": "JH6_6x4_MT_Dumper_420HP.pdf"
     },
 
     # 4. 6x4 Water Tanker
     "6x4 Water Tanker": {
-        "MT Standard 390HP": "JH6_6x4_MT_Water_Tanker_390HP.pdf"
+        "6x4 Water Tanker MT 390HP": "JH6_6x4_MT_Water_Tanker_390HP.pdf"
     },
 
     # 5. 6x4 Boom Crane
     "6x4 Boom Crane": {
-        "MT Standard 390HP": "JH6_6x4_MT_Boom_Crane_390HP.pdf"
+        "6x4 Boom Crane MT 390HP": "JH6_6x4_MT_Boom_Crane_390HP.pdf"
     },
 
     # 6. 8x4 Dumper
     "8x4 Dumper": {
-        "MT Standard 390HP": "JH6_8x4_MT_Dumper_390HP.pdf",
-        "MT Standard 420HP": "JH6_8x4_MT_Dumper_420HP.pdf"
+        "8x4 Dumper MT 390HP": "JH6_8x4_MT_Dumper_390HP.pdf",
+        "8x4 Dumper MT 420HP": "JH6_8x4_MT_Dumper_420HP.pdf"
     },
 
     # 7. 8x4 Mixer
     "8x4 Mixer": {
-        "MT Standard 390HP": "JH6_8x4_MT_Mixer_390HP.pdf"
+        "8x4 Mixer MT 390HP": "JH6_8x4_MT_Mixer_390HP.pdf"
     }
 }
 
