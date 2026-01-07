@@ -201,28 +201,26 @@ def show_thank_you_page():
     download_models = []
     for unique_key, q in st.session_state.submodel_qty.items():
         if q > 0:
-            # 拆分唯一key，提取二级车型名（用于匹配PDF）
+            # 拆分key：去掉一级车型前缀，只保留二级车型名
             sub_model = unique_key.split("_", 1)[1]
             download_models.append(sub_model)
 
     if not download_models:
         st.info("No specific models selected, no downloadable materials available")
     else:
-        for model in download_models:
-            # 根据二级车型名获取对应的PDF文件名
+        # 核心修改：添加enumerate索引，生成绝对唯一的key
+        for idx, model in enumerate(download_models):
             pdf_filename = PDF_MAP.get(model)
             if pdf_filename:
-                # 部署到Streamlit Cloud时，注释掉os.path.exists（云端路径逻辑不同）
-                # if os.path.exists(pdf_filename):  
                 try:
                     with open(pdf_filename, "rb") as f:
                         st.download_button(
-                            label=f"📥 Download {pdf_filename}",
+                            label=f"📥 {pdf_filename}",
                             data=f,
-                            file_name=pdf_filename,  # 下载文件名=配置的PDF原始名
+                            file_name=pdf_filename,
                             mime="application/pdf",
                             use_container_width=True,
-                            key=f"download_{model}"
+                            key=f"download_btn_{idx}"  # 用索引做key，绝对不重复
                         )
                 except FileNotFoundError:
                     st.warning(f"⚠️ {pdf_filename} not found! Please check if the file is uploaded correctly.")
