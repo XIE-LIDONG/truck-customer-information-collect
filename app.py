@@ -132,7 +132,7 @@ def main():
                 with col1: st.write(f"📌 {s}")
                 with col2:
                     q = st.number_input(
-                        f"{s} Quantity", min_value=0, value=st.session_state.submodel_qty[s], step=1, key=f"q_{s}"
+                        "Quantity", min_value=0, value=st.session_state.submodel_qty[s], step=1, key=f"q_{s}"
                     )
                     st.session_state.submodel_qty[s] = q
 
