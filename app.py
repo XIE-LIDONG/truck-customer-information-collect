@@ -77,7 +77,7 @@ def main():
     if "selected_main" not in st.session_state:
         st.session_state.selected_main = []
     if "submodel_qty" not in st.session_state:
-        st.session_state.submodel_qty = {}  # 存储格式："{main}_{sub}": quantity
+        st.session_state.submodel_qty = {}  
     if "submitted" not in st.session_state:
         st.session_state.submitted = False
 
@@ -108,16 +108,16 @@ def main():
             elif not checked and m in st.session_state.selected_main:
                 st.session_state.selected_main.remove(m)
 
-    # 3. Sub-model & Quantity (核心修改：使用唯一key避免重复)
+    # 3. Sub-model & Quantity
     if st.session_state.selected_main:
         st.markdown("### 5.1 Specific Models & Quantity ")
         st.markdown("---")
         for m in st.session_state.selected_main:
             st.subheader(m)
             for s in CAR_CONFIG[m]:
-                # 生成全局唯一key：一级车型+二级车型
+    
                 unique_key = f"{m}_{s}"
-                # 初始化数量（使用唯一key）
+
                 if unique_key not in st.session_state.submodel_qty:
                     st.session_state.submodel_qty[unique_key] = 0
                 
@@ -125,7 +125,7 @@ def main():
                 with col1: 
                     st.write(f"📌 {s}")
                 with col2:
-                    # 数量输入框：使用唯一key，避免StreamlitDuplicateElementKey报错
+     
                     q = st.number_input(
                         "Quantity", 
                         min_value=0, 
@@ -133,14 +133,14 @@ def main():
                         step=1, 
                         key=f"q_{unique_key}"  # 唯一key：q_4x2 Tractor_AMT High Roof...
                     )
-                    # 更新数量（存储唯一key对应的数量）
+        
                     st.session_state.submodel_qty[unique_key] = q
 
     # 4. Submit Button
     st.markdown("---")
     submit = st.button("Submit Inquiry", use_container_width=True)
 
-    # 5. Submission Logic (核心修改：解析唯一key，还原车型名)
+    # 5. Submission Logic 
     if submit:
         # Validate required fields
         err = []
@@ -162,10 +162,10 @@ Customer Information【FAW】FAW Vehicle Inquiry
 6. Purchase Details:
 """
         has_data = False
-        # 解析唯一key，提取车型名和数量
+
         for unique_key, q in st.session_state.submodel_qty.items():
             if q > 0:
-                # 拆分key：去掉一级车型前缀，只保留二级车型名
+            
                 sub_model = unique_key.split("_", 1)[1]  # 从"4x2 Tractor_AMT High..."提取"AMT High..."
                 msg += f"   - {sub_model}: {q} unit(s)\n"
                 has_data = True
@@ -188,27 +188,24 @@ Customer Information【FAW】FAW Vehicle Inquiry
         except Exception as e:
             st.error(f"❌ System error: {str(e)}")
 
-# ---------------------- Thank You Page (核心修改：适配唯一key) ----------------------
+
 def show_thank_you_page():
     st.set_page_config(page_title="Submission Successful | FAW Inquiry", page_icon="✅", layout="centered")
     st.title("✅ Submission Successful! Thank you for your inquiry")
     st.markdown("---")
-    st.markdown("### 📞 We will contact you shortly")
     st.markdown("### 📄 You can download detailed information for selected models:")
     st.markdown("---")
 
-    # 筛选有数量的车型（解析唯一key）
+
     download_models = []
     for unique_key, q in st.session_state.submodel_qty.items():
         if q > 0:
-            # 拆分key：去掉一级车型前缀，只保留二级车型名
             sub_model = unique_key.split("_", 1)[1]
             download_models.append(sub_model)
 
     if not download_models:
         st.info("No specific models selected, no downloadable materials available")
     else:
-        # 核心修改：添加enumerate索引，生成绝对唯一的key
         for idx, model in enumerate(download_models):
             pdf_filename = PDF_MAP.get(model)
             if pdf_filename:
@@ -220,7 +217,7 @@ def show_thank_you_page():
                             file_name=pdf_filename,
                             mime="application/pdf",
                             use_container_width=True,
-                            key=f"download_btn_{idx}"  # 用索引做key，绝对不重复
+                            key=f"download_btn_{idx}" 
                         )
                 except FileNotFoundError:
                     st.warning(f"⚠️ {pdf_filename} not found! Please check if the file is uploaded correctly.")
