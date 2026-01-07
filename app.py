@@ -222,7 +222,7 @@ def show_thank_you_page():
                             file_name=pdf_filename,  # 下载文件名=配置的PDF原始名
                             mime="application/pdf",
                             use_container_width=True,
-                            key=f"download_{model}
+                            key=f"download_{model}"
                         )
                 except FileNotFoundError:
                     st.warning(f"⚠️ {pdf_filename} not found! Please check if the file is uploaded correctly.")
