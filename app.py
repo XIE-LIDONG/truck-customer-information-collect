@@ -106,8 +106,6 @@ def main():
 )
     st.divider()
 
-    st.divider()
-
     # 1. Basic Information
     c_name = st.text_input("1. Company Name *", placeholder="Full name of your company")
     phone = st.text_input("3. Phone NUmber *", placeholder="Mobile/landline number")
