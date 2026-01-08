@@ -158,11 +158,10 @@ def main():
         msg = f"""
 Customer Information【FAW】FAW Vehicle Inquiry
 1. Company Name: {c_name}
-2. Contact Person: {u_name if u_name else "Not provided"}
-3. Phone Number: {phone}
-4. Address: {addr if addr else "Not provided"}
-5. Vehicle Categories: {', '.join(st.session_state.selected_main) if st.session_state.selected_main else "Not selected"}
-6. Purchase Details:
+2. Phone Number: {phone}
+3. Address: {addr if addr else "Not provided"}
+4. Vehicle Categories: {', '.join(st.session_state.selected_main) if st.session_state.selected_main else "Not selected"}
+5. Purchase Details:
 """
         has_data = False
 
