@@ -99,9 +99,13 @@ def main():
     col1, col2, col3 = st.columns([1,2,1])  # 三列布局，中间列显示Logo
     with col2:
         st.image("Fawtrucks.png", use_column_width=True)  # 自动适配列宽
-    st.divider()  # Logo和标题之间的分割线
     # ====== Logo代码结束 ======
-    st.title("Welcome to ALQAFLA！")
+st.markdown(
+    "<h1 style='text-align: center;'>Welcome to ALQAFLA！</h1>",
+    unsafe_allow_html=True
+)
+st.divider()
+
     st.divider()
 
     # 1. Basic Information
