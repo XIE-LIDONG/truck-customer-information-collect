@@ -93,7 +93,14 @@ def main():
         return
 
     # Form page
-    st.set_page_config(page_title="FAW Vehicle Inquiry Form", page_icon="🚛", layout="centered")
+    st.set_page_config(page_title="Purchase Intention", page_icon="🚛", layout="centered")
+     # ====== 新增Logo代码 ======
+    # 加载并显示Logo（居中）
+    col1, col2, col3 = st.columns([1,2,1])  # 三列布局，中间列显示Logo
+    with col2:
+        st.image("Fawtrucks.png", use_column_width=True)  # 自动适配列宽
+    st.divider()  # Logo和标题之间的分割线
+    # ====== Logo代码结束 ======
     st.title("Welcome to ALQAFLA！")
     st.divider()
 
