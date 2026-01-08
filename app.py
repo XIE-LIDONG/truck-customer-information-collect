@@ -6,7 +6,7 @@ import os
 # ---------------------- Core Configuration (Only modify this dict!) ----------------------
 CAR_PDF_MASTER = {
     # 1. 4x2 Tractor
-    "4x2 Tractor": {
+    "4x2 Tractor Head": {
         "4x2 Tractor AMT High Roof Standard (Leaf Spring) 420HP": "JH6_4x2 AMT_High_Roof_Standard_Tractor_Leaf_spring_420HP.pdf",
         "4x2 Tractor AMT High Roof Standard (Air Suspension) 420HP": "JH6_4x2_AMT_High_Roof_Standard_Tractor_Air_Suspension_420HP.pdf",
         "4x2 Tractor AMT High Roof Standard (Air Suspension) 460HP": "JH6_4x2_AMT_High_Roof_Standard_Tractor_Air_Suspension_460HP.pdf",
@@ -17,7 +17,7 @@ CAR_PDF_MASTER = {
     },
 
     # 2. 6x4 Tractor
-    "6x4 Tractor": {
+    "6x4 Tractor Head": {
         "6x4 Tractor MT (315 Tire)": "JH6_6x4_MT_Tractor_315_Tire.pdf",
         "6x4 Tractor MT 420HP": "JH6_6x4_MT_Tractor_420HP.pdf",
         "6x4 Tractor MT 550HP": "JH6_6x4_MT_Tractor_550HP.pdf"
@@ -28,31 +28,33 @@ CAR_PDF_MASTER = {
         "6x4 Dumper MT 390HP": "JH6_6x4_MT_Dumper_390HP.pdf",
         "6x4 Dumper MT 420HP": "JH6_6x4_MT_Dumper_420HP.pdf"
     },
+     # 4. 6x4 Boom Crane
+    "6x4 Boom Crane": {
+        "6x4 Boom Crane MT 390HP": "JH6_6x4_MT_Boom_Crane_390HP.pdf"
+    },
+     # 5. 6✖4 hook Arm
+    "Hook Arm":{
+    "6x4 Hook Arm":""    
+    },
 
-    # 4. 6x4 Water Tanker
+    # 6. 6x4 Water Tanker
     "6x4 Water Tanker": {
         "6x4 Water Tanker MT 390HP": "JH6_6x4_MT_Water_Tanker_390HP.pdf"
     },
 
-    # 5. 6x4 Boom Crane
-    "6x4 Boom Crane": {
-        "6x4 Boom Crane MT 390HP": "JH6_6x4_MT_Boom_Crane_390HP.pdf"
-    },
+   
 
-    # 6. 8x4 Dumper
+    # 7. 8x4 Dumper
     "8x4 Dumper": {
         "8x4 Dumper MT 390HP": "JH6_8x4_MT_Dumper_390HP.pdf",
         "8x4 Dumper MT 420HP": "JH6_8x4_MT_Dumper_420HP.pdf"
     },
 
-    # 7. 8x4 Mixer
+    # 8. 8x4 Mixer
     "8x4 Mixer": {
         "8x4 Mixer MT 390HP": "JH6_8x4_MT_Mixer_390HP.pdf"
-    },
-    # 8. 6✖4 hook Arm
-    "Hook Arm":{
-    "6x4 Hook Arm":""    
     }
+   
 }
 
 # Feishu Robot Configuration
