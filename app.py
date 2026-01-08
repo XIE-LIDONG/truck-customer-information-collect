@@ -152,7 +152,7 @@ def main():
 
     # 4. Submit Button
     st.markdown("---")
-    submit = st.button("Submit Inquiry", use_container_width=True)
+    submit = st.button("Submit ", use_container_width=True)
 
     # 5. Submission Logic 
     if submit:
