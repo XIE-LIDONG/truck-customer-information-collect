@@ -48,6 +48,10 @@ CAR_PDF_MASTER = {
     # 7. 8x4 Mixer
     "8x4 Mixer": {
         "8x4 Mixer MT 390HP": "JH6_8x4_MT_Mixer_390HP.pdf"
+    },
+    # 8. 6✖4 hook Arm
+    "Hook Arm":{
+    "6x4 Hook Arm":""    
     }
 }
 
@@ -93,12 +97,11 @@ def main():
 
     # 1. Basic Information
     c_name = st.text_input("1. Company Name *", placeholder="Full name of your company")
-    u_name = st.text_input("2. Your Name", placeholder="Your name")
-    phone = st.text_input("3. Contact Phone *", placeholder="Mobile/landline number")
-    addr = st.text_area("4. Company Address", placeholder="Detailed address", height=100)
+    phone = st.text_input("3. Phone NUmber *", placeholder="Mobile/landline number")
+    addr = st.text_area("4. National Address", placeholder="Detailed address", height=100)
 
     # 2. Main Model Selection
-    st.markdown("### 5. Which truck categories are you interested in?")
+    st.markdown("### Choose your favorite trucks model from below")
     cols = st.columns(3)
     for idx, m in enumerate(MAIN_MODELS):
         with cols[idx%3]:
