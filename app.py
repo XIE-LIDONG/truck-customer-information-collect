@@ -100,11 +100,11 @@ def main():
     with col2:
         st.image("Fawtrucks.png", use_column_width=True)  # 自动适配列宽
     # ====== Logo代码结束 ======
-st.markdown(
+    st.markdown(
     "<h1 style='text-align: center;'>Welcome to ALQAFLA！</h1>",
     unsafe_allow_html=True
 )
-st.divider()
+    st.divider()
 
     st.divider()
 
