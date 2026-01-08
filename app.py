@@ -100,22 +100,10 @@ def main():
     with col2:
         st.image("Fawtrucks.png", use_column_width=True)  # 自动适配列宽
     # ====== Logo代码结束 ======
-    st.markdown("""
-    <style>
-    /* 全局标题样式：居中 */
-    .custom-title {
-        text-align: center;
-        font-size: 36px; /* 电脑端字体大小 */
-    }
-    /* 手机端适配（屏幕宽度小于768px时生效） */
-    @media (max-width: 768px) {
-        .custom-title {
-            font-size: 24px; /* 手机端字体大小 */
-        }
-    }
-    </style>
-    <h1 class='custom-title'>Welcome to ALQAFLA！</h1>
-""", unsafe_allow_html=True)
+    st.markdown(
+    "<h1 style='text-align: center; font-size: 28px;'>Welcome to ALQAFLA！</h1>",
+    unsafe_allow_html=True
+)
     st.divider()
 
     # 1. Basic Information
