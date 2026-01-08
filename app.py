@@ -238,7 +238,7 @@ def show_thank_you_page():
                 st.warning(f"No PDF file configured for: {model}")
 
     # Return to homepage
-    if st.button("Return to Inquiry Form", use_container_width=True):
+    if st.button("Return", use_container_width=True):
         # 清空所有session_state
         st.session_state.submitted = False
         st.session_state.selected_main = []
