@@ -94,7 +94,7 @@ def main():
 
     # Form page
     st.set_page_config(page_title="FAW Vehicle Inquiry Form", page_icon="🚛", layout="centered")
-    st.title("ALQAFLA&FAW Truck Form")
+    st.title("Welcome to ALQAFLA！")
     st.divider()
 
     # 1. Basic Information
