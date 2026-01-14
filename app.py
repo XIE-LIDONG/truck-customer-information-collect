@@ -12,7 +12,7 @@ CAR_PDF_MASTER = {
         "4x2 Tractor AMT High Roof Standard (Air Suspension) 460HP": "JH6_4x2_AMT_High_Roof_Standard_Tractor_Air_Suspension_460HP.pdf",
         "4x2 Tractor AMT Flat Roof Multifunction (Leaf Spring) 420HP": "JH6_4x2_AMT_Flat_Roof_Multifunction_Tractor_Leaf_Spring_420HP.pdf",
         "4x2 Tractor AMT High Roof Multifunction (Leaf Spring) 420HP": "JH6_4x2_AMT_High_Roof_Multifunction_Tractor_Leaf_Spring_420HP.pdf",
-        "4x2 Tractor MT Flat Roof Multifunction (Leaf Spring) 420HP": "JH6_4x2_MT_Flat_Roof_Multifunction_Tractor_Leaf_Spring_420HP.pdf",  # 核心修复：加了逗号
+        "4x2 Tractor MT Flat Roof Multifunction (Leaf Spring) 420HP": "JH6_4x2_MT_Flat_Roof_Multifunction_Tractor_Leaf_Spring_420HP.pdf",
         "4x2 Tractor MT Flat Roof Heavy Duty (Leaf Spring) 420HP (Double Reduction)": "JH6_4x2_MT_Flat_Roof_Heavy_Duty_Tractor_Leaf_Spring_420HP_Double_Reduction.pdf",
     },
 
@@ -41,8 +41,6 @@ CAR_PDF_MASTER = {
     "6x4 Water Tanker": {
         "6x4 Water Tanker MT 390HP": "JH6_6x4_MT_Water_Tanker_390HP.pdf"
     },
-
-   
 
     # 7. 8x4 Dumper
     "8x4 Dumper": {
@@ -93,26 +91,25 @@ def main():
         return
 
     # Form page
-    st.set_page_config(page_title="Purchase Intention", page_icon="🚛", layout="centered")
-     # ====== 新增Logo代码 ======
-    # 加载并显示Logo（居中）
-    col1, col2, col3 = st.columns([1,2,1])  # 三列布局，中间列显示Logo
+    st.set_page_config(page_title="Purchase Intention | نية الشراء", page_icon="🚛", layout="centered")
+     # ====== Logo代码 ======
+    col1, col2, col3 = st.columns([1,2,1])
     with col2:
-        st.image("Fawtrucks.png", use_column_width=True)  # 自动适配列宽
+        st.image("Fawtrucks.png", use_column_width=True)
     # ====== Logo代码结束 ======
     st.markdown(
-    "<h1 style='text-align: center; font-size: 28px;'>Welcome to ALQAFLA！</h1>",
+    "<h1 style='text-align: center; font-size: 28px;'>Welcome to ALQAFLA | مرحباً بك في شركة القفلة</h1>",
     unsafe_allow_html=True
 )
     st.divider()
 
-    # 1. Basic Information
-    c_name = st.text_input("1. Company Name *", placeholder="Full name of your company")
-    phone = st.text_input("3. Phone NUmber *", placeholder="Mobile/landline number")
-    addr = st.text_area("4. National Address", placeholder="Detailed address", height=100)
+    # 1. Basic Information 基础信息 双语
+    c_name = st.text_input("1. Company Name / اسم الشركة *", placeholder="Full name of your company / الاسم الكامل للشركة")
+    phone = st.text_input("2. Phone Number / رقم الهاتف *", placeholder="Mobile/landline number / رقم الجوال/الهاتف الثابت")
+    addr = st.text_area("3. National Address / العنوان الوطني", placeholder="Detailed address / العنوان بالتفصيل", height=100)
 
-    # 2. Main Model Selection
-    st.markdown("### Choose your favorite trucks model from below")
+    # 2. Main Model Selection 车型选择 双语
+    st.markdown("### Choose your favorite trucks model from below / اختر نموذج الشاحنات المفضل من الأسفل")
     cols = st.columns(3)
     for idx, m in enumerate(MAIN_MODELS):
         with cols[idx%3]:
@@ -122,9 +119,9 @@ def main():
             elif not checked and m in st.session_state.selected_main:
                 st.session_state.selected_main.remove(m)
 
-    # 3. Sub-model & Quantity
+    # 3. Sub-model & Quantity 子车型和数量 双语
     if st.session_state.selected_main:
-        st.markdown("### 5.1 Specific Models & Quantity ")
+        st.markdown("### 4.1 Specific Models & Quantity / النماذج التفصيلية والكمية ")
         st.markdown("---")
         for m in st.session_state.selected_main:
             st.subheader(m)
@@ -139,33 +136,31 @@ def main():
                 with col1: 
                     st.write(f"📌 {s}")
                 with col2:
-     
                     q = st.number_input(
-                        "Quantity", 
+                        "Quantity / الكمية", 
                         min_value=0, 
                         value=st.session_state.submodel_qty[unique_key], 
                         step=1, 
-                        key=f"q_{unique_key}"  # 唯一key：q_4x2 Tractor_AMT High Roof...
+                        key=f"q_{unique_key}"
                     )
-        
                     st.session_state.submodel_qty[unique_key] = q
 
-    # 4. Submit Button
+    # 4. Submit Button 提交按钮 双语
     st.markdown("---")
-    submit = st.button("Submit ", use_container_width=True)
+    submit = st.button("Submit | أرسل الطلب ", use_container_width=True)
 
-    # 5. Submission Logic 
+    # 5. Submission Logic 提交逻辑
     if submit:
         # Validate required fields
         err = []
-        if not c_name: err.append("Company Name")
-        if not phone: err.append("Contact Phone")
+        if not c_name: err.append("Company Name / اسم الشركة")
+        if not phone: err.append("Contact Phone / رقم الهاتف")
         
         if err:
-            st.error(f"Required fields missing: {', '.join(err)}")
+            st.error(f"Required fields missing: {', '.join(err)} | الحقول المطلوبة مفقودة: {', '.join(err)}")
             return
 
-        # Construct Feishu message
+        # Construct Feishu message 飞书消息内容不变（英文，不影响后台）
         msg = f"""
 Customer Information【FAW】FAW Vehicle Inquiry
 1. Company Name: {c_name}
@@ -178,8 +173,7 @@ Customer Information【FAW】FAW Vehicle Inquiry
 
         for unique_key, q in st.session_state.submodel_qty.items():
             if q > 0:
-            
-                sub_model = unique_key.split("_", 1)[1]  # 从"4x2 Tractor_AMT High..."提取"AMT High..."
+                sub_model = unique_key.split("_", 1)[1]
                 msg += f"   - {sub_model}: {q} unit(s)\n"
                 has_data = True
         if not has_data: 
@@ -197,16 +191,16 @@ Customer Information【FAW】FAW Vehicle Inquiry
                 st.session_state.submitted = True
                 st.rerun()
             else:
-                st.error(f"❌ Submission failed: {res_json}")
+                st.error(f"❌ Submission failed | فشل الإرسال: {res_json}")
         except Exception as e:
-            st.error(f"❌ System error: {str(e)}")
+            st.error(f"❌ System error | خطأ في النظام: {str(e)}")
 
 
 def show_thank_you_page():
-    st.set_page_config(page_title="Submission Successful | FAW Inquiry", page_icon="✅", layout="centered")
-    st.title("✅ Submission Successful! Thank you for your inquiry")
+    st.set_page_config(page_title="Submission Successful | نجاح الإرسال | FAW Inquiry", page_icon="✅", layout="centered")
+    st.title("✅ Submission Successful! Thank you for your inquiry | ✅ تم الإرسال بنجاح! شكراً لاستفسارك")
     st.markdown("---")
-    st.markdown("### 📄 You can download detailed information for selected models:")
+    st.markdown("### 📄 You can download detailed information for selected models: | 📄 يمكنك تنزيل المعلومات التفصيلية للنماذج المختارة:")
     st.markdown("---")
 
 
@@ -217,7 +211,7 @@ def show_thank_you_page():
             download_models.append(sub_model)
 
     if not download_models:
-        st.info("No specific models selected, no downloadable materials available")
+        st.info("No specific models selected, no downloadable materials available | لم يتم اختيار أي نماذج، لا توجد مواد للتنزيل")
     else:
         for idx, model in enumerate(download_models):
             pdf_filename = PDF_MAP.get(model)
@@ -233,13 +227,12 @@ def show_thank_you_page():
                             key=f"download_btn_{idx}" 
                         )
                 except FileNotFoundError:
-                    st.warning(f"⚠️ {pdf_filename} not found! Please check if the file is uploaded correctly.")
+                    st.warning(f"⚠️ {pdf_filename} not found! Please check if the file is uploaded correctly. | ⚠️ لم يتم العثور على الملف! يرجى التحقق من رفع الملف بشكل صحيح.")
             else:
-                st.warning(f"No PDF file configured for: {model}")
+                st.warning(f"No PDF file configured for: {model} | لا يوجد ملف PDF مُعين لهذا النموذج: {model}")
 
-    # Return to homepage
-    if st.button("Return", use_container_width=True):
-        # 清空所有session_state
+    # Return to homepage 返回首页 双语
+    if st.button("Return to Homepage | العودة للصفحة الرئيسية", use_container_width=True):
         st.session_state.submitted = False
         st.session_state.selected_main = []
         st.session_state.submodel_qty = {}
