@@ -98,7 +98,7 @@ def main():
         st.image("Fawtrucks.png", use_column_width=True)
     # ====== Logo代码结束 ======
     st.markdown(
-    "<h1 style='text-align: center; font-size: 28px;'>Welcome to ALQAFLA | مرحبا بكم في ALQAFLA</h1>",
+    "<h1 style='text-align: center; font-size: 28px;'>Welcome to ALQAFLA |ALQAFLA مرحبا بكم في </h1>",
     unsafe_allow_html=True
 )
     st.divider()
