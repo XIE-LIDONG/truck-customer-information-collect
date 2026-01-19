@@ -110,8 +110,10 @@ def main():
         if err:
             st.error(f"Required fields missing: {', '.join(err)} | الحقول المطلوبة مفقودة: {', '.join(err)}")
             return
-        
+
+        # ========== 修复1：日期精确到秒 强制生效 ==========
         current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        # ========== 修复2：加入关键词 解决飞书提交失败 + 日期必显示 ==========
         msg = f"""
 New Purchase Inquiry Received [ALQAFLA]
 📅 Submission Time: {current_time}
