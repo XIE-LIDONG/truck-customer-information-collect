@@ -2,7 +2,8 @@ import streamlit as st
 import requests
 import json
 import os
-from datetime import datetime, timedelta
+from datetime import datetime
+import pytz
 
 CAR_PDF_MASTER = {
     "4x2 Tractor Head | رأس جرار 4x2": {
@@ -106,11 +107,11 @@ def main():
             st.error(f"Required fields missing: {', '.join(err)} | الحقول المطلوبة مفقودة: {', '.join(err)}")
             return
 
-        saudi_time = datetime.now() - timedelta(hours=5)
-        current_time = saudi_time.strftime("%Y-%m-%d %H:%M:%S")
+        saudi_tz = pytz.timezone('Asia/Riyadh')
+        current_time = datetime.now(saudi_tz).strftime("%Y-%m-%d %H:%M:%S")
         msg = f"""
 New Purchase Inquiry Received [ALQAFLA]
-📅 Submission Time (SAST): {current_time}
+📅 Submission Time: {current_time}
 1. Company Name: {c_name}
 2. Contact Phone Number: {phone}
 3. Selected Vehicle Models:
