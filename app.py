@@ -3,7 +3,7 @@ import requests
 import json
 import os
 
-# ---------------------- Core Configuration (✅ 你的原版完整字典 一字未改) ----------------------
+# ---------------------- Core Configuration (✅ 你的最终版字典 一字未改 完全保留) ----------------------
 CAR_PDF_MASTER = {
     # 1. 4x2 Tractor - 4x2 رأس جرار
     "4x2 Tractor Head | 4x2 رأس جرار": {
@@ -86,18 +86,16 @@ def main():
     )
     st.divider()
 
-    # ✅ 核心修改：无分级、所有车型直接平铺勾选 双列布局 美观紧凑
+    # ✅ 核心修改：取消双列、改为【纯一竖排单列】展示所有车型勾选框  就是你要的效果
     st.markdown("### ✅ Select Vehicle Models | اختر نماذج السيارات")
     st.markdown("##### (Tick the models you are interested in / اضغط على النماذج التي تهتم بها)")
     st.divider()
-    cols = st.columns(2)
     for idx, model in enumerate(ALL_MODELS):
-        with cols[idx % 2]:
-            is_checked = st.checkbox(model, key=f"model_{idx}", value=model in st.session_state.selected_models)
-            if is_checked and model not in st.session_state.selected_models:
-                st.session_state.selected_models.append(model)
-            elif not is_checked and model in st.session_state.selected_models:
-                st.session_state.selected_models.remove(model)
+        is_checked = st.checkbox(model, key=f"model_{idx}", value=model in st.session_state.selected_models)
+        if is_checked and model not in st.session_state.selected_models:
+            st.session_state.selected_models.append(model)
+        elif not is_checked and model in st.session_state.selected_models:
+            st.session_state.selected_models.remove(model)
 
     # ✅ Customer Information (删除地址栏，只有公司名+手机号 两个必填项，纯英阿双语)
     st.markdown("---")
