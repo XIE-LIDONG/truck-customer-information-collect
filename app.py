@@ -47,13 +47,25 @@ CAR_PDF_MASTER = {
 # Feishu Robot Configuration
 FEISHU_WEBHOOK = "https://open.feishu.cn/open-apis/bot/v2/hook/d849efbe-0ce8-42e8-85f5-6385d25d4542"
 
-# Custom Styles
+# Custom Styles ✅ 新增沙特阿拉伯风格美化 + 保留原有样式 + 阿式配色 深绿/金色（沙特代表色）+ 字体优化
 st.markdown("""
 <style>
-.stButton>button {background-color: #0066cc; color: white; border-radius: 5px;}
-.stTextInput>div>div>input {border-radius: 5px;}
-.stCheckbox>label {font-size: 15px;}
-.stDownloadButton>button {background-color: #28a745; color: white; border-radius: 5px;}
+/* 原有按钮样式保留+优化沙特配色 */
+.stButton>button {background-color: #005a31; color: #fff; border-radius: 8px; font-weight: bold; border:1px solid #f1c40f;}
+.stButton>button:hover {background-color: #004725; color: #f1c40f;}
+
+/* 输入框样式优化 */
+.stTextInput>div>div>input {border-radius: 8px; border:1px solid #005a31; padding:8px;}
+
+/* 勾选框字体放大+美观 */
+.stCheckbox>label {font-size: 15px; line-height: 1.6;}
+
+/* PDF下载按钮沙特金色+绿边 */
+.stDownloadButton>button {background-color: #f1c40f; color: #005a31; border-radius: 8px; font-weight: bold; border:1px solid #005a31;}
+.stDownloadButton>button:hover {background-color: #d4ac0d; color: #fff;}
+
+/* 全局字体优化 更适配阿语+英语 */
+body {font-family: 'Segoe UI', Arabic, sans-serif;}
 </style>
 """, unsafe_allow_html=True)
 
@@ -84,14 +96,19 @@ def main():
     col1, col2, col3 = st.columns([1,2,1])
     with col2:
         st.image("Fawtrucks.png", use_column_width=True)
+    
+    # ✅ 顶部新增【沙特核心祈福语】奉至仁至慈的真主之名 最经典阿拉伯元素 必加
+    st.markdown("<h3 style='text-align:center; color:#005a31;'>بسم الله الرحمن الرحيم</h3>", unsafe_allow_html=True)
     # ====== Title ======
     st.markdown(
-    "<h1 style='text-align: center; font-size: 28px;'>Welcome to ALQAFLA | مرحبا بكم في ALQAFLA</h1>",
+    "<h1 style='text-align: center; font-size: 28px; color:#005a31;'>Welcome to ALQAFLA | مرحبا بكم في شركة القافلة</h1>",
     unsafe_allow_html=True
     )
+    # ✅ 新增 愿真主赐福 经典阿语祈福
+    st.markdown("<h4 style='text-align:center; color:#d4ac0d;'>اللهم بارك فينا و في أعمالنا</h4>", unsafe_allow_html=True)
     st.divider()
 
-    # ✅ 核心修改：取消双列、改为【纯一竖排单列】展示所有车型勾选框  就是你要的效果
+    # ✅ 纯一竖排 单列展示所有车型勾选框 (你的原版排版 未改动)
     st.markdown("### ✅ Select Vehicle Models | اختر نماذج السيارات")
     st.markdown("##### (Tick the models you are interested in / اضغط على النماذج التي تهتم بها)")
     st.divider()
@@ -102,7 +119,7 @@ def main():
         elif not is_checked and model in st.session_state.selected_models:
             st.session_state.selected_models.remove(model)
 
-    # ✅ Customer Information (删除地址栏，只有公司名+手机号 两个必填项，纯英阿双语)
+    # ✅ Customer Information (删除地址栏，只有公司名+手机号 两个必填项，纯英阿双语 原版未改)
     st.markdown("---")
     st.markdown("### 📝 Customer Information | معلومات العميل *")
     c_name = st.text_input("1. Company Name / اسم الشركة *", placeholder="Full name of your company / الاسم الكامل للشركة")
@@ -112,7 +129,7 @@ def main():
     st.markdown("---")
     submit = st.button("Submit Inquiry | أرسل الاستفسار", use_container_width=True)
 
-    # Submission Logic
+    # Submission Logic ✅ 完全原版 未改动一行代码
     if submit:
         # Validate required fields
         err = []
@@ -156,12 +173,16 @@ New Purchase Inquiry Received [ALQAFLA]
 
 def show_thank_you_page():
     st.set_page_config(page_title="Thank You | شكرًا", page_icon="✅", layout="centered")
+    # ✅ 成功页 核心阿语祈福+感谢真主 重中之重 最贴合你的需求
+    st.markdown("<h2 style='text-align:center; color:#005a31;'>الحمد لله على النجاح ✅</h2>", unsafe_allow_html=True)
     st.title("✅ Submission Successful | تم الإرسال بنجاح")
-    st.header("Thank you for your inquiry | شكرًا لاستفسارك")
-    st.markdown("We will contact you as soon as possible | سنقوم بالتواصل معك في أقرب وقت")
+    st.header("Thank you for your inquiry | شكرًا لاستفسارك الكريم")
+    st.markdown("<h4 style='text-align:center; color:#005a31;'>سنقوم بالتواصل معك في أقرب وقت بإذن الله</h4>", unsafe_allow_html=True)
+    # ✅ 新增 愿真主保佑你 经典祝福
+    st.markdown("<h4 style='text-align:center; color:#d4ac0d;'>اللهم حفظك و بارك فيك</h4>", unsafe_allow_html=True)
     st.markdown("---")
 
-    # PDF Download Section
+    # PDF Download Section ✅ 原版未改动
     st.subheader("📄 Download Vehicle Brochures | تنزيل كتيبات السيارات")
     selected_models = st.session_state.selected_models
 
@@ -188,7 +209,8 @@ def show_thank_you_page():
 
     # Return to homepage
     st.markdown("---")
-    if st.button("🔙 Back to Homepage | العودة للصفحة الرئيسية", use_container_width=True):
+    # ✅ 返回按钮也加阿语温馨提示
+    if st.button("🔙 Back to Homepage | العودة للصفحة الرئيسية بإذن الله", use_container_width=True):
         st.session_state.submitted = False
         st.session_state.selected_models = []
         st.rerun()
