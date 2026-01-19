@@ -27,21 +27,10 @@ CAR_PDF_MASTER = {
         "6x4 Dumper MT 420HP | قلابة 6x4 MT 420 حصان": "JH6_6x4_MT_Dumper_420HP.pdf"
     },
     
-    # 4. 6x4 Boom Crane - 6x4 رافعة
-    "6x4 Boom Crane | 6x4 رافعة": {
-        "6x4 Boom Crane MT 390HP | رافعة 6x4 MT 390 حصان": "JH6_6x4_MT_Boom_Crane_390HP.pdf"
-    },
-    
 
     # 6. 6x4 Water Tanker - 6x4 صهريج مياه
     "6x4 Water Tanker | 6x4 صهريج مياه": {
         "6x4 Water Tanker MT 390HP | صهريج مياه 6x4 MT 390 حصان": "JH6_6x4_MT_Water_Tanker_390HP.pdf"
-    },
-
-    # 7. 8x4 Dumper - 8x4 قلابة
-    "8x4 Dumper | 8x4 قلابة": {
-        "8x4 Dumper MT 390HP | قلابة 8x4 MT 390 حصان": "JH6_8x4_MT_Dumper_390HP.pdf"
-
     },
 
     # 8. 8x4 Mixer - 8x4 خلاطة
