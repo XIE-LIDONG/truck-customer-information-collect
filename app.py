@@ -6,36 +6,45 @@ import os
 # ---------------------- Core Configuration (✅ 你的最终版字典 一字未改 完全保留) ----------------------
 CAR_PDF_MASTER = {
     # 1. 4x2 Tractor - 4x2 رأس جرار
-    "4x2 Tractor Head | 4x2 رأس جرار": {
-       
-        "4x2 Tractor AMT High Roof Air Suspension 420HP | جرار 4x2 AMT سقف عالي قياسي (تعليق هوائي) 420 حصان": "JH6_4x2_AMT_High_Roof_Standard_Tractor_Air_Suspension_420HP.pdf",
-        "4x2 Tractor AMT High Roof Leaf Spring 420HP | جرار 4x2 AMT سقف عالي متعدد الوظائف (نوابض ورقية) 420 حصان": "JH6_4x2_AMT_High_Roof_Multifunction_Tractor_Leaf_Spring_420HP.pdf",
-        "4x2 Tractor AMT Flat Roof Leaf Spring 420HP | جرار 4x2 AMT سقف مسطح متعدد الوظائف (نوابض ورقية) 420 حصان": "JH6_4x2_AMT_Flat_Roof_Multifunction_Tractor_Leaf_Spring_420HP.pdf",
-        "4x2 Tractor MT Flat Roof Leaf Spring 420HP | جرار 4x2 MT سقف مسطح متعدد الوظائف (نوابض ورقية) 420 حصان": "JH6_4x2_MT_Flat_Roof_Multifunction_Tractor_Leaf_Spring_420HP.pdf"
-      
+    "4x2 Tractor Head | رأس جرار 4x2": {
+        "4x2 Tractor AMT High Roof Air Suspension 420HP | رأس جرار 4x2 AMT سقف عالي مع تعليق هوائي 420 حصان": 
+            "JH6_4x2_AMT_High_Roof_Standard_Tractor_Air_Suspension_420HP.pdf",
+
+        "4x2 Tractor AMT High Roof Leaf Spring 420HP | رأس جرار 4x2 AMT سقف عالي مع نوابض ورقية 420 حصان": 
+            "JH6_4x2_AMT_High_Roof_Multifunction_Tractor_Leaf_Spring_420HP.pdf",
+
+        "4x2 Tractor AMT Flat Roof Leaf Spring 420HP | رأس جرار 4x2 AMT سقف مسطح مع نوابض ورقية 420 حصان": 
+            "JH6_4x2_AMT_Flat_Roof_Multifunction_Tractor_Leaf_Spring_420HP.pdf",
+
+        "4x2 Tractor MT Flat Roof Leaf Spring 420HP | رأس جرار 4x2 MT سقف مسطح مع نوابض ورقية 420 حصان": 
+            "JH6_4x2_MT_Flat_Roof_Multifunction_Tractor_Leaf_Spring_420HP.pdf"
     },
+
     # 2. 6x4 Tractor - 6x4 رأس جرار
-    "6x4 Tractor Head | 6x4 رأس جرار": {
-       
-        "6x4 Tractor MT 420HP | جرار 6x4 MT 420 حصان": "JH6_6x4_MT_Tractor_420HP.pdf"
-       
+    "6x4 Tractor Head | رأس جرار 6x4": {
+        "6x4 Tractor MT 420HP | رأس جرار 6x4 MT 420 حصان": 
+            "JH6_6x4_MT_Tractor_420HP.pdf"
     },
 
     # 3. 6x4 Dumper - 6x4 قلابة
-    "6x4 Dumper | 6x4 قلابة": {
-        "6x4 Dumper MT 390HP | قلابة 6x4 MT 390 حصان": "JH6_6x4_MT_Dumper_390HP.pdf",
-        "6x4 Dumper MT 420HP | قلابة 6x4 MT 420 حصان": "JH6_6x4_MT_Dumper_420HP.pdf"
+    "6x4 Dumper | شاحنة قلابة 6x4": {
+        "6x4 Dumper MT 390HP | شاحنة قلابة 6x4 MT 390 حصان": 
+            "JH6_6x4_MT_Dumper_390HP.pdf",
+
+        "6x4 Dumper MT 420HP | شاحنة قلابة 6x4 MT 420 حصان": 
+            "JH6_6x4_MT_Dumper_420HP.pdf"
     },
-    
 
     # 6. 6x4 Water Tanker - 6x4 صهريج مياه
-    "6x4 Water Tanker | 6x4 صهريج مياه": {
-        "6x4 Water Tanker MT 390HP | صهريج مياه 6x4 MT 390 حصان": "JH6_6x4_MT_Water_Tanker_390HP.pdf"
+    "6x4 Water Tanker | شاحنة صهريج مياه 6x4": {
+        "6x4 Water Tanker MT 390HP | شاحنة صهريج مياه 6x4 MT 390 حصان": 
+            "JH6_6x4_MT_Water_Tanker_390HP.pdf"
     },
 
     # 8. 8x4 Mixer - 8x4 خلاطة
-    "8x4 Mixer | 8x4 خلاطة": {
-        "8x4 Mixer MT 390HP | خلاطة 8x4 MT 390 حصان": "JH6_8x4_MT_Mixer_390HP.pdf"
+    "8x4 Mixer | شاحنة خلاطة 8x4": {
+        "8x4 Mixer MT 390HP | شاحنة خلاطة 8x4 MT 390 حصان": 
+            "JH6_8x4_MT_Mixer_390HP.pdf"
     }
 }
 
