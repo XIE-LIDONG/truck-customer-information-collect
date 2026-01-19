@@ -109,8 +109,8 @@ def main():
     st.divider()
 
     # ✅ 纯一竖排 单列展示所有车型勾选框 (你的原版排版 未改动)
-    st.markdown("### ✅ Select Vehicle Models | اختر نماذج السيارات")
-    st.markdown("##### (Tick the models you are interested in / اضغط على النماذج التي تهتم بها)")
+        st.markdown("### ✅ Select your trucks | اختر شاحناتك")
+
     st.divider()
     for idx, model in enumerate(ALL_MODELS):
         is_checked = st.checkbox(model, key=f"model_{idx}", value=model in st.session_state.selected_models)
@@ -121,7 +121,7 @@ def main():
 
     # ✅ Customer Information (删除地址栏，只有公司名+手机号 两个必填项，纯英阿双语 原版未改)
     st.markdown("---")
-    st.markdown("### 📝 Customer Information | معلومات العميل *")
+
     c_name = st.text_input("1. Company Name / اسم الشركة *", placeholder="Full name of your company / الاسم الكامل للشركة")
     phone = st.text_input("2. Phone Number / رقم الهاتف *", placeholder="Mobile/landline number / رقم الجوال/الهاتف الثابت")
 
