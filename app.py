@@ -76,15 +76,11 @@ def main():
         st.image("Fawtrucks.png", use_column_width=True)
     
     st.markdown("<h3 style='text-align:center; color:#005a31;'>بسم الله الرحمن الرحيم</h3>", unsafe_allow_html=True)
-    st.markdown(
-    "<h1 style='text-align: center; font-size: 28px; color:#005a31;'>Welcome to ALQAFLA | مرحبا بكم في شركة القافلة</h1>",
-    unsafe_allow_html=True
-    )
+    st.markdown("<h1 style='text-align: center; font-size: 28px; color:#005a31;'>Welcome to ALQAFLA | مرحبا بكم في شركة القافلة</h1>",unsafe_allow_html=True)
     st.markdown("<h4 style='text-align:center; color:#d4ac0d;'>اللهم بارك فينا و في أعمالنا</h4>", unsafe_allow_html=True)
     st.divider()
 
     st.markdown("### ✅ Select your trucks | اختر شاحناتك")
-
     st.divider()
     for idx, model in enumerate(ALL_MODELS):
         is_checked = st.checkbox(model, key=f"model_{idx}", value=model in st.session_state.selected_models)
@@ -94,17 +90,18 @@ def main():
             st.session_state.selected_models.remove(model)
 
     st.markdown("---")
-
-    c_name = st.text_input("1. Name / الاسم *", placeholder="Fill in your name  / أدخل اسمك")
-    phone = st.text_input("2. Phone Number / رقم الهاتف *", placeholder="Mobile/landline number / رقم الجوال/الهاتف الثابت")
+    # ========== 核心文化优化1：客户信息栏 沙特商务版 尊称呼+企业适配 ==========
+    c_name = st.text_input("1. Company & Contact Name / اسم الشركة و اسم المسؤول *", placeholder="Enter company name and your name  / أدخل اسم الشركة و اسمك الكريم")
+    phone = st.text_input("2. Mobile Phone Number / رقم الجوال *", placeholder="+966 5XXXXXXXXX / رقم الجوال السعودي", help="We will contact you as soon as possible | سنقوم بالاتصال بك في أقرب وقت")
+    # ========== 优化结束 ==========
 
     st.markdown("---")
     submit = st.button("Submit | أرسل", use_container_width=True)
 
     if submit:
         err = []
-        if not c_name: err.append("Company Name / اسم الشركة")
-        if not phone: err.append("Phone Number / رقم الهاتف")
+        if not c_name: err.append("Company & Contact Name / اسم الشركة و اسم المسؤول")
+        if not phone: err.append("Mobile Phone Number / رقم الجوال")
         
         if err:
             st.error(f"Required fields missing: {', '.join(err)} | الحقول المطلوبة مفقودة: {', '.join(err)}")
@@ -112,8 +109,8 @@ def main():
 
         msg = f"""
 New Purchase Inquiry Received [ALQAFLA]
-1. Company Name: {c_name}
-2. Contact Phone Number: {phone}
+1. Company & Contact Name: {c_name}
+2. Mobile Phone Number: {phone}
 3. Selected Vehicle Models:
 """
         has_data = False
@@ -125,11 +122,7 @@ New Purchase Inquiry Received [ALQAFLA]
             msg += "   - No specific models selected\n"
 
         try:
-            res = requests.post(
-                FEISHU_WEBHOOK,
-                data=json.dumps({"msg_type":"text","content":{"text":msg.strip()}}),
-                headers={"Content-Type":"application/json"}
-            )
+            res = requests.post(FEISHU_WEBHOOK,data=json.dumps({"msg_type":"text","content":{"text":msg.strip()}}),headers={"Content-Type":"application/json"})
             res_json = res.json()
             if res.status_code == 200 and res_json.get("code") == 0:
                 st.session_state.submitted = True
@@ -159,14 +152,7 @@ def show_thank_you_page():
             if pdf_filename and pdf_filename.strip():
                 try:
                     with open(pdf_filename, "rb") as f:
-                        st.download_button(
-                            label=f"📥 {model.split(' | ')[0]}",
-                            data=f,
-                            file_name=pdf_filename,
-                            mime="application/pdf",
-                            use_container_width=True,
-                            key=f"download_btn_{idx}"
-                        )
+                        st.download_button(label=f"📥 {model.split(' | ')[0]}",data=f,file_name=pdf_filename,mime="application/pdf",use_container_width=True,key=f"download_btn_{idx}")
                 except FileNotFoundError:
                     st.warning(f"⚠️ File not found | الملف غير موجود : {pdf_filename}")
             else:
