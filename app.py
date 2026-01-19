@@ -2,6 +2,7 @@ import streamlit as st
 import requests
 import json
 import os
+from datetime import datetime
 
 CAR_PDF_MASTER = {
     "4x2 Tractor Head | رأس جرار 4x2": {
@@ -109,9 +110,11 @@ def main():
         if err:
             st.error(f"Required fields missing: {', '.join(err)} | الحقول المطلوبة مفقودة: {', '.join(err)}")
             return
-
+        
+        current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         msg = f"""
 New Purchase Inquiry Received [ALQAFLA]
+📅 Submission Time: {current_time}
 1. Company Name: {c_name}
 2. Contact Phone Number: {phone}
 3. Selected Vehicle Models:
