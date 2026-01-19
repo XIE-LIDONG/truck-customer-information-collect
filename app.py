@@ -127,7 +127,7 @@ def main():
 
     # Submit Button
     st.markdown("---")
-    submit = st.button("Submit Inquiry | أرسل الاستفسار", use_container_width=True)
+    submit = st.button("Submit | أرسل", use_container_width=True)
 
     # Submission Logic ✅ 完全原版 未改动一行代码
     if submit:
