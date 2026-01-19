@@ -65,8 +65,8 @@ def main():
     st.divider()
 
     # 1. Vehicle Selection (Simplified Checkboxes)
-    st.markdown("### ✅ Select Your Interest | اختر ما تهمه")
-    st.markdown("##### (Please tick the models you are interested in / الرجاء تحديد النماذج التي تهتم بها)")
+    st.markdown("### ✅ Select Your trucks below | اختر شاحناتك أدناه")
+
     st.divider()
     
     main_model = MAIN_MODELS[0]
