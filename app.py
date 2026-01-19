@@ -5,18 +5,56 @@ import os
 
 # ---------------------- Core Configuration (Only English & Arabic) ----------------------
 CAR_PDF_MASTER = {
-    "Vehicle Selection | اختيار السيارات": {
-        "4x2 Tractor AMT High Roof (Leaf Spring) 420HP | 4*2 رأس جرار AMT سقف عالي (نوابض ورقية) 420 حصان": "JH6_4x2 AMT_High_Roof_Standard_Tractor_Leaf_spring_420HP.pdf",
-        "4x2 Tractor AMT Flat Roof (Leaf Spring) 420HP | 4*2 رأس جرار AMT سقف مسطح (نوابض ورقية) 420 حصان": "JH6_4x2_AMT_Flat_Roof_Multifunction_Tractor_Leaf_Spring_420HP.pdf",
-        "4x2 Tractor AMT High Roof (Air Suspension) 420HP | 4*2 رأس جرار AMT سقف عالي (تعليق هوائي) 420 حصان": "JH6_4x2_AMT_High_Roof_Standard_Tractor_Air_Suspension_420HP.pdf",
-        "6x4 Tractor MT 420HP | 6*4 رأس جرار MT 420 حصان": "JH6_6x4_MT_Tractor_420HP.pdf",
-        "6x4 Dumper MT 420HP | 6*4 قلابة MT 420 حصان": "JH6_6x4_MT_Dumper_420HP.pdf",
-        "8x4 Mixer MT 390HP | 8*4 خلاطة MT 390 حصان": "JH6_8x4_MT_Mixer_390HP.pdf",
-        "6x4 Water Tanker MT 390HP | 6*4 صهريج مياه MT 390 حصان": "JH6_6x4_MT_Water_Tanker_390HP.pdf",
-        "6x4 Hook Arm | 6*4 ذراع خطاف (底盘)": ""
+    # 1. 4x2 Tractor - 4x2 رأس جرار
+    "4x2 Tractor Head | 4x2 رأس جرار": {
+        "4x2 Tractor AMT High Roof Standard (Leaf Spring) 420HP | جرار 4x2 AMT سقف عالي قياسي (نوابض ورقية) 420 حصان": "JH6_4x2 AMT_High_Roof_Standard_Tractor_Leaf_spring_420HP.pdf",
+        "4x2 Tractor AMT High Roof Standard (Air Suspension) 420HP | جرار 4x2 AMT سقف عالي قياسي (تعليق هوائي) 420 حصان": "JH6_4x2_AMT_High_Roof_Standard_Tractor_Air_Suspension_420HP.pdf",
+        "4x2 Tractor AMT High Roof Standard (Air Suspension) 460HP | جرار 4x2 AMT سقف عالي قياسي (تعليق هوائي) 460 حصان": "JH6_4x2_AMT_High_Roof_Standard_Tractor_Air_Suspension_460HP.pdf",
+        "4x2 Tractor AMT Flat Roof Multifunction (Leaf Spring) 420HP | جرار 4x2 AMT سقف مسطح متعدد الوظائف (نوابض ورقية) 420 حصان": "JH6_4x2_AMT_Flat_Roof_Multifunction_Tractor_Leaf_Spring_420HP.pdf",
+        "4x2 Tractor AMT High Roof Multifunction (Leaf Spring) 420HP | جرار 4x2 AMT سقف عالي متعدد الوظائف (نوابض ورقية) 420 حصان": "JH6_4x2_AMT_High_Roof_Multifunction_Tractor_Leaf_Spring_420HP.pdf",
+        "4x2 Tractor MT Flat Roof Multifunction (Leaf Spring) 420HP | جرار 4x2 MT سقف مسطح متعدد الوظائف (نوابض ورقية) 420 حصان": "JH6_4x2_MT_Flat_Roof_Multifunction_Tractor_Leaf_Spring_420HP.pdf",
+        "4x2 Tractor MT Flat Roof Heavy Duty (Leaf Spring) 420HP (Double Reduction) | جرار 4x2 MT سقف مسطح للخدمة الشاقة (نوابض ورقية) 420 حصان (تخفيض مزدوج)": "JH6_4x2_MT_Flat_Roof_Heavy_Duty_Tractor_Leaf_Spring_420HP_Double_Reduction.pdf",
+    },
+
+    # 2. 6x4 Tractor - 6x4 رأس جرار
+    "6x4 Tractor Head | 6x4 رأس جرار": {
+        "6x4 Tractor MT (315 Tire) | جرار 6x4 MT (إطار 315)": "JH6_6x4_MT_Tractor_315_Tire.pdf",
+        "6x4 Tractor MT 420HP | جرار 6x4 MT 420 حصان": "JH6_6x4_MT_Tractor_420HP.pdf",
+        "6x4 Tractor MT 550HP | جرار 6x4 MT 550 حصان": "JH6_6x4_MT_Tractor_550HP.pdf"
+    },
+
+    # 3. 6x4 Dumper - 6x4 قلابة
+    "6x4 Dumper | 6x4 قلابة": {
+        "6x4 Dumper MT 390HP | قلابة 6x4 MT 390 حصان": "JH6_6x4_MT_Dumper_390HP.pdf",
+        "6x4 Dumper MT 420HP | قلابة 6x4 MT 420 حصان": "JH6_6x4_MT_Dumper_420HP.pdf"
+    },
+    
+    # 4. 6x4 Boom Crane - 6x4 رافعة
+    "6x4 Boom Crane | 6x4 رافعة": {
+        "6x4 Boom Crane MT 390HP | رافعة 6x4 MT 390 حصان": "JH6_6x4_MT_Boom_Crane_390HP.pdf"
+    },
+    
+    # 5. 6x4 Hook Arm - 6x4 ذراع خطاف
+    "Hook Arm | ذراع خطاف": {
+        "6x4 Hook Arm | ذراع خطاف 6x4": ""    
+    },
+
+    # 6. 6x4 Water Tanker - 6x4 صهريج مياه
+    "6x4 Water Tanker | 6x4 صهريج مياه": {
+        "6x4 Water Tanker MT 390HP | صهريج مياه 6x4 MT 390 حصان": "JH6_6x4_MT_Water_Tanker_390HP.pdf"
+    },
+
+    # 7. 8x4 Dumper - 8x4 قلابة
+    "8x4 Dumper | 8x4 قلابة": {
+        "8x4 Dumper MT 390HP | قلابة 8x4 MT 390 حصان": "JH6_8x4_MT_Dumper_390HP.pdf",
+        "8x4 Dumper MT 420HP | قلابة 8x4 MT 420 حصان": "JH6_8x4_MT_Dumper_420HP.pdf"
+    },
+
+    # 8. 8x4 Mixer - 8x4 خلاطة
+    "8x4 Mixer | 8x4 خلاطة": {
+        "8x4 Mixer MT 390HP | خلاطة 8x4 MT 390 حصان": "JH6_8x4_MT_Mixer_390HP.pdf"
     }
 }
-
 # Feishu Robot Configuration
 FEISHU_WEBHOOK = "https://open.feishu.cn/open-apis/bot/v2/hook/d849efbe-0ce8-42e8-85f5-6385d25d4542"
 
