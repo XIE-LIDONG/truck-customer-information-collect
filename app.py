@@ -109,7 +109,7 @@ def main():
     st.divider()
 
     # ✅ 纯一竖排 单列展示所有车型勾选框 (你的原版排版 未改动)
-        st.markdown("### ✅ Select your trucks | اختر شاحناتك")
+    st.markdown("### ✅ Select your trucks | اختر شاحناتك")
 
     st.divider()
     for idx, model in enumerate(ALL_MODELS):
