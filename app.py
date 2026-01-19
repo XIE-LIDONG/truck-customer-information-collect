@@ -7,16 +7,16 @@ import os
 CAR_PDF_MASTER = {
     # 1. 4x2 Tractor - 4x2 رأس جرار
     "4x2 Tractor Head | رأس جرار 4x2": {
-        "4x2 Tractor AMT Mega Air Suspension 420HP | رأس جرار 4x2 AMT سقف عالي مع تعليق هوائي 420 حصان": 
+        "4x2 Tractor AMT Mega Air Suspension 420HP | رأس جرار 4x2 AMT ميجا مع تعليق هوائي 420 حصان": 
             "JH6_4x2_AMT_High_Roof_Standard_Tractor_Air_Suspension_420HP.pdf",
 
-        "4x2 Tractor AMT Mega Leaf Spring 420HP | رأس جرار 4x2 AMT سقف عالي مع نوابض ورقية 420 حصان": 
+        "4x2 Tractor AMT Mega Leaf Spring 420HP | رأس جرار 4x2 AMT ميجا مع نوابض ورقية 420 حصان": 
             "JH6_4x2_AMT_High_Roof_Multifunction_Tractor_Leaf_Spring_420HP.pdf",
 
-        "4x2 Tractor AMT Half Mega Leaf Spring 420HP | رأس جرار 4x2 AMT سقف مسطح مع نوابض ورقية 420 حصان": 
+        "4x2 Tractor AMT Half Mega Leaf Spring 420HP | رأس جرار 4x2 AMT هاف ميجا مع نوابض ورقية 420 حصان": 
             "JH6_4x2_AMT_Flat_Roof_Multifunction_Tractor_Leaf_Spring_420HP.pdf",
 
-        "4x2 Tractor MT Half Mega Leaf Spring 420HP | رأس جرار 4x2 MT سقف مسطح مع نوابض ورقية 420 حصان": 
+        "4x2 Tractor MT Half Mega Leaf Spring 420HP | رأس جرار 4x2 MT هاف ميجا مع نوابض ورقية 420 حصان": 
             "JH6_4x2_MT_Flat_Roof_Multifunction_Tractor_Leaf_Spring_420HP.pdf"
     },
 
@@ -30,7 +30,6 @@ CAR_PDF_MASTER = {
     "6x4 Dumper | شاحنة قلابة 6x4": {
         "6x4 Dumper MT 390HP | شاحنة قلابة 6x4 MT 390 حصان": 
             "JH6_6x4_MT_Dumper_390HP.pdf"
-
     },
 
     # 6. 6x4 Water Tanker - 6x4 صهريج مياه
@@ -45,7 +44,6 @@ CAR_PDF_MASTER = {
             "JH6_8x4_MT_Mixer_390HP.pdf"
     }
 }
-
 # Feishu Robot Configuration
 FEISHU_WEBHOOK = "https://open.feishu.cn/open-apis/bot/v2/hook/d849efbe-0ce8-42e8-85f5-6385d25d4542"
 
