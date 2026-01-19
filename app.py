@@ -122,7 +122,7 @@ def main():
     # ✅ Customer Information (删除地址栏，只有公司名+手机号 两个必填项，纯英阿双语 原版未改)
     st.markdown("---")
 
-    c_name = st.text_input("1. Company Name / اسم الشركة *", placeholder="Full name of your company / الاسم الكامل للشركة")
+    c_name = st.text_input("1. Name / الاسم *", placeholder="Fill in your name  / أدخل اسمك")
     phone = st.text_input("2. Phone Number / رقم الهاتف *", placeholder="Mobile/landline number / رقم الجوال/الهاتف الثابت")
 
     # Submit Button
