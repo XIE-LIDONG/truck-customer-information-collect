@@ -84,7 +84,7 @@ def main():
 
     # 2. Customer Information (Moved to the end, No Address field)
     st.markdown("---")
-    st.markdown("### 📝*")
+    st.markdown("### 📝")
     
     c_name = st.text_input("1. Company Name / اسم الشركة *", placeholder="Full name of your company / الاسم الكامل للشركة")
     phone = st.text_input("2. Phone Number / رقم الهاتف *", placeholder="Mobile/landline number / رقم الجوال/الهاتف الثابت")
