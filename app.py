@@ -1,19 +1,59 @@
+
 import streamlit as st
 import requests
 import json
 import os
 
-# ---------------------- Core Configuration (Only English & Arabic) ----------------------
+# ---------------------- Core Configuration (Only modify this dict!) ----------------------
 CAR_PDF_MASTER = {
-    "Vehicle Selection | اختيار السيارات": {
-        "4x2 Tractor AMT High Roof (Leaf Spring) 420HP | 4*2 رأس جرار AMT سقف عالي (نوابض ورقية) 420 حصان": "JH6_4x2 AMT_High_Roof_Standard_Tractor_Leaf_spring_420HP.pdf",
-        "4x2 Tractor AMT Flat Roof (Leaf Spring) 420HP | 4*2 رأس جرار AMT سقف مسطح (نوابض ورقية) 420 حصان": "JH6_4x2_AMT_Flat_Roof_Multifunction_Tractor_Leaf_Spring_420HP.pdf",
-        "4x2 Tractor AMT High Roof (Air Suspension) 420HP | 4*2 رأس جرار AMT سقف عالي (تعليق هوائي) 420 حصان": "JH6_4x2_AMT_High_Roof_Standard_Tractor_Air_Suspension_420HP.pdf",
-        "6x4 Tractor MT 420HP | 6*4 رأس جرار MT 420 حصان": "JH6_6x4_MT_Tractor_420HP.pdf",
-        "6x4 Dumper MT 420HP | 6*4 قلابة MT 420 حصان": "JH6_6x4_MT_Dumper_420HP.pdf",
-        "8x4 Mixer MT 390HP | 8*4 خلاطة MT 390 حصان": "JH6_8x4_MT_Mixer_390HP.pdf",
-        "6x4 Water Tanker MT 390HP | 6*4 صهريج مياه MT 390 حصان": "JH6_6x4_MT_Water_Tanker_390HP.pdf",
-        "6x4 Hook Arm | 6*4 ذراع خطاف (底盘)": ""
+    # 1. 4x2 Tractor - 4x2 رأس جرار
+    "4x2 Tractor Head | 4x2 رأس جرار": {
+        "4x2 Tractor AMT High Roof Standard (Leaf Spring) 420HP | جرار 4x2 AMT سقف عالي قياسي (نوابض ورقية) 420 حصان": "JH6_4x2 AMT_High_Roof_Standard_Tractor_Leaf_spring_420HP.pdf",
+        "4x2 Tractor AMT High Roof Standard (Air Suspension) 420HP | جرار 4x2 AMT سقف عالي قياسي (تعليق هوائي) 420 حصان": "JH6_4x2_AMT_High_Roof_Standard_Tractor_Air_Suspension_420HP.pdf",
+        "4x2 Tractor AMT High Roof Standard (Air Suspension) 460HP | جرار 4x2 AMT سقف عالي قياسي (تعليق هوائي) 460 حصان": "JH6_4x2_AMT_High_Roof_Standard_Tractor_Air_Suspension_460HP.pdf",
+        "4x2 Tractor AMT Flat Roof Multifunction (Leaf Spring) 420HP | جرار 4x2 AMT سقف مسطح متعدد الوظائف (نوابض ورقية) 420 حصان": "JH6_4x2_AMT_Flat_Roof_Multifunction_Tractor_Leaf_Spring_420HP.pdf",
+        "4x2 Tractor AMT High Roof Multifunction (Leaf Spring) 420HP | جرار 4x2 AMT سقف عالي متعدد الوظائف (نوابض ورقية) 420 حصان": "JH6_4x2_AMT_High_Roof_Multifunction_Tractor_Leaf_Spring_420HP.pdf",
+        "4x2 Tractor MT Flat Roof Multifunction (Leaf Spring) 420HP | جرار 4x2 MT سقف مسطح متعدد الوظائف (نوابض ورقية) 420 حصان": "JH6_4x2_MT_Flat_Roof_Multifunction_Tractor_Leaf_Spring_420HP.pdf",
+        "4x2 Tractor MT Flat Roof Heavy Duty (Leaf Spring) 420HP (Double Reduction) | جرار 4x2 MT سقف مسطح للخدمة الشاقة (نوابض ورقية) 420 حصان (تخفيض مزدوج)": "JH6_4x2_MT_Flat_Roof_Heavy_Duty_Tractor_Leaf_Spring_420HP_Double_Reduction.pdf",
+    },
+
+    # 2. 6x4 Tractor - 6x4 رأس جرار
+    "6x4 Tractor Head | 6x4 رأس جرار": {
+        "6x4 Tractor MT (315 Tire) | جرار 6x4 MT (إطار 315)": "JH6_6x4_MT_Tractor_315_Tire.pdf",
+        "6x4 Tractor MT 420HP | جرار 6x4 MT 420 حصان": "JH6_6x4_MT_Tractor_420HP.pdf",
+        "6x4 Tractor MT 550HP | جرار 6x4 MT 550 حصان": "JH6_6x4_MT_Tractor_550HP.pdf"
+    },
+
+    # 3. 6x4 Dumper - 6x4 قلابة
+    "6x4 Dumper | 6x4 قلابة": {
+        "6x4 Dumper MT 390HP | قلابة 6x4 MT 390 حصان": "JH6_6x4_MT_Dumper_390HP.pdf",
+        "6x4 Dumper MT 420HP | قلابة 6x4 MT 420 حصان": "JH6_6x4_MT_Dumper_420HP.pdf"
+    },
+    
+    # 4. 6x4 Boom Crane - 6x4 رافعة
+    "6x4 Boom Crane | 6x4 رافعة": {
+        "6x4 Boom Crane MT 390HP | رافعة 6x4 MT 390 حصان": "JH6_6x4_MT_Boom_Crane_390HP.pdf"
+    },
+    
+    # 5. 6x4 Hook Arm - 6x4 ذراع خطاف
+    "Hook Arm | ذراع خطاف": {
+        "6x4 Hook Arm | ذراع خطاف 6x4": ""    
+    },
+
+    # 6. 6x4 Water Tanker - 6x4 صهريج مياه
+    "6x4 Water Tanker | 6x4 صهريج مياه": {
+        "6x4 Water Tanker MT 390HP | صهريج مياه 6x4 MT 390 حصان": "JH6_6x4_MT_Water_Tanker_390HP.pdf"
+    },
+
+    # 7. 8x4 Dumper - 8x4 قلابة
+    "8x4 Dumper | 8x4 قلابة": {
+        "8x4 Dumper MT 390HP | قلابة 8x4 MT 390 حصان": "JH6_8x4_MT_Dumper_390HP.pdf",
+        "8x4 Dumper MT 420HP | قلابة 8x4 MT 420 حصان": "JH6_8x4_MT_Dumper_420HP.pdf"
+    },
+
+    # 8. 8x4 Mixer - 8x4 خلاطة
+    "8x4 Mixer | 8x4 خلاطة": {
+        "8x4 Mixer MT 390HP | خلاطة 8x4 MT 390 حصان": "JH6_8x4_MT_Mixer_390HP.pdf"
     }
 }
 
@@ -40,8 +80,10 @@ for main, sub_pdf in CAR_PDF_MASTER.items():
 # ---------------------- Page Logic ----------------------
 def main():
     # Initialize session_state
-    if "selected_sub_models" not in st.session_state:
-        st.session_state.selected_sub_models = []
+    if "selected_main" not in st.session_state:
+        st.session_state.selected_main = []
+    if "submodel_qty" not in st.session_state:
+        st.session_state.submodel_qty = {}  
     if "submitted" not in st.session_state:
         st.session_state.submitted = False
 
@@ -52,70 +94,91 @@ def main():
 
     # Form page
     st.set_page_config(page_title="Purchase Intention | نية الشراء", page_icon="🚛", layout="centered")
-    
-    # ====== Logo ======
+     # ====== Logo代码 ======
     col1, col2, col3 = st.columns([1,2,1])
     with col2:
         st.image("Fawtrucks.png", use_column_width=True)
-    
+    # ====== Logo代码结束 ======
     st.markdown(
-        "<h1 style='text-align: center; font-size: 28px;'>Welcome to ALQAFLA | مرحبا بكم في ALQAFLA</h1>",
-        unsafe_allow_html=True
-    )
+    "<h1 style='text-align: center; font-size: 28px;'>Welcome to ALQAFLA | ALQAFLA مرحبا بكم في </h1>",
+    unsafe_allow_html=True
+)
     st.divider()
 
-    # 1. Vehicle Selection (Simplified Checkboxes)
-    st.markdown("### ✅ Select Your trucks below | اختر شاحناتك أدناه")
-
-    st.divider()
-    
-    main_model = MAIN_MODELS[0]
-    all_sub_models = CAR_CONFIG[main_model]
-    
-    # 2-Column Layout for Checkboxes
-    cols = st.columns(2)
-    for idx, sub_model in enumerate(all_sub_models):
-        with cols[idx % 2]:
-            is_checked = st.checkbox(sub_model, key=sub_model, value=sub_model in st.session_state.selected_sub_models)
-            if is_checked and sub_model not in st.session_state.selected_sub_models:
-                st.session_state.selected_sub_models.append(sub_model)
-            elif not is_checked and sub_model in st.session_state.selected_sub_models:
-                st.session_state.selected_sub_models.remove(sub_model)
-
-    # 2. Customer Information (Moved to the end, No Address field)
-    st.markdown("---")
-    st.markdown("### 📝 Customer Information | معلومات العميل *")
-    
+    # 1. Basic Information 基础信息 双语
     c_name = st.text_input("1. Company Name / اسم الشركة *", placeholder="Full name of your company / الاسم الكامل للشركة")
     phone = st.text_input("2. Phone Number / رقم الهاتف *", placeholder="Mobile/landline number / رقم الجوال/الهاتف الثابت")
+    addr = st.text_area("3. National Address / العنوان الوطني", placeholder="Detailed address / العنوان بالتفصيل", height=100)
 
-    # 3. Submit Button
+    # 2. Main Model Selection 车型选择 双语
+    st.markdown("### Choose your favorite trucks model from below / اختر نموذج الشاحنات المفضل من الأسفل")
+    cols = st.columns(3)
+    for idx, m in enumerate(MAIN_MODELS):
+        with cols[idx%3]:
+            checked = st.checkbox(m, key=f"m_{m}", value=m in st.session_state.selected_main)
+            if checked and m not in st.session_state.selected_main:
+                st.session_state.selected_main.append(m)
+            elif not checked and m in st.session_state.selected_main:
+                st.session_state.selected_main.remove(m)
+
+    # 3. Sub-model & Quantity 子车型和数量 双语
+    if st.session_state.selected_main:
+        st.markdown("### 4.1 Specific Models & Quantity / النماذج التفصيلية والكمية ")
+        st.markdown("---")
+        for m in st.session_state.selected_main:
+            st.subheader(m)
+            for s in CAR_CONFIG[m]:
+    
+                unique_key = f"{m}_{s}"
+
+                if unique_key not in st.session_state.submodel_qty:
+                    st.session_state.submodel_qty[unique_key] = 0
+                
+                col1, col2 = st.columns([4,1])
+                with col1: 
+                    st.write(f"📌 {s}")
+                with col2:
+                    q = st.number_input(
+                        "Quantity / الكمية", 
+                        min_value=0, 
+                        value=st.session_state.submodel_qty[unique_key], 
+                        step=1, 
+                        key=f"q_{unique_key}"
+                    )
+                    st.session_state.submodel_qty[unique_key] = q
+
+    # 4. Submit Button 提交按钮 双语
     st.markdown("---")
-    submit = st.button("Submit Inquiry | أرسل الاستفسار", use_container_width=True)
+    submit = st.button("Submit | أرسل الطلب ", use_container_width=True)
 
-    # 4. Submission Logic
+    # 5. Submission Logic 提交逻辑
     if submit:
-        # Validation
+        # Validate required fields
         err = []
         if not c_name: err.append("Company Name / اسم الشركة")
-        if not phone: err.append("Phone Number / رقم الهاتف")
+        if not phone: err.append("Contact Phone / رقم الهاتف")
         
         if err:
             st.error(f"Required fields missing: {', '.join(err)} | الحقول المطلوبة مفقودة: {', '.join(err)}")
             return
 
-        # Prepare Feishu Message (English Only for Backend)
+        # Construct Feishu message 飞书消息内容不变（英文，不影响后台）
         msg = f"""
-New Purchase Inquiry Received [ALQAFLA]
+Customer Information【FAW】FAW Vehicle Inquiry
 1. Company Name: {c_name}
-2. Contact Phone: {phone}
-3. Selected Models:
+2. Phone Number: {phone}
+3. Address: {addr if addr else "Not provided"}
+4. Vehicle Categories: {', '.join(st.session_state.selected_main) if st.session_state.selected_main else "Not selected"}
+5. Purchase Details:
 """
-        if st.session_state.selected_sub_models:
-            for model in st.session_state.selected_sub_models:
-                # Split to show only English part in the log
-                msg += f"   - {model.split(' | ')[0]}\n"
-        else:
+        has_data = False
+
+        for unique_key, q in st.session_state.submodel_qty.items():
+            if q > 0:
+                sub_model = unique_key.split("_", 1)[1]
+                msg += f"   - {sub_model}: {q} unit(s)\n"
+                has_data = True
+        if not has_data: 
             msg += "   - No specific models selected\n"
 
         # Send to Feishu
@@ -130,51 +193,53 @@ New Purchase Inquiry Received [ALQAFLA]
                 st.session_state.submitted = True
                 st.rerun()
             else:
-                st.error(f"❌ Submission failed | فشل الإرسال: {res_json.get('msg', 'Unknown error')}")
+                st.error(f"❌ Submission failed | فشل الإرسال: {res_json}")
         except Exception as e:
             st.error(f"❌ System error | خطأ في النظام: {str(e)}")
 
+
 def show_thank_you_page():
-    st.set_page_config(page_title="Thank You | شكرًا", page_icon="✅", layout="centered")
-    
-    st.title("✅ Submission Successful | تم الإرسال بنجاح")
-    st.header("Thank you for your interest! | شكرًا لاهتمامك!")
-    st.markdown("We will contact you shortly. | سنتواصل معك قريبًا.")
+    st.set_page_config(page_title="Submission Successful | نجاح الإرسال | FAW Inquiry", page_icon="✅", layout="centered")
+    st.title("✅ Submission Successful! Thank you for your inquiry | ✅ تم الإرسال بنجاح! شكراً لاستفسارك")
+    st.markdown("---")
+    st.markdown("### 📄 You can download detailed information for selected models: | 📄 يمكنك تنزيل المعلومات التفصيلية للنماذج المختارة:")
     st.markdown("---")
 
-    # PDF Download Section
-    st.subheader("📄 Download Brochures / تنزيل الكتيبات")
-    selected_models = st.session_state.selected_sub_models
-    
-    if not selected_models:
-        st.info("No models were selected. | لم يتم تحديد أي نماذج.")
+
+    download_models = []
+    for unique_key, q in st.session_state.submodel_qty.items():
+        if q > 0:
+            sub_model = unique_key.split("_", 1)[1]
+            download_models.append(sub_model)
+
+    if not download_models:
+        st.info("No specific models selected, no downloadable materials available | لم يتم اختيار أي نماذج، لا توجد مواد للتنزيل")
     else:
-        for idx, model in enumerate(selected_models):
+        for idx, model in enumerate(download_models):
             pdf_filename = PDF_MAP.get(model)
-            if pdf_filename and pdf_filename.strip():
+            if pdf_filename:
                 try:
                     with open(pdf_filename, "rb") as f:
-                        # Use English name for download file
-                        download_label = f"📥 Download: {model.split(' | ')[0]}"
                         st.download_button(
-                            label=download_label,
+                            label=f"📥 {pdf_filename}",
                             data=f,
                             file_name=pdf_filename,
                             mime="application/pdf",
                             use_container_width=True,
-                            key=f"dl_{idx}"
+                            key=f"download_btn_{idx}" 
                         )
                 except FileNotFoundError:
-                    st.warning(f"⚠️ File not found: {pdf_filename} | الملف غير موجود")
+                    st.warning(f"⚠️ {pdf_filename} not found! Please check if the file is uploaded correctly. | ⚠️ لم يتم العثور على الملف! يرجى التحقق من رفع الملف بشكل صحيح.")
             else:
-                st.warning(f"⚠️ No brochure available for this model | لا يوجد كتيب متاح لهذا النموذج")
+                st.warning(f"No PDF file configured for: {model} | لا يوجد ملف PDF مُعين لهذا النموذج: {model}")
 
-    # Back Button
-    st.markdown("---")
-    if st.button("🔙 Back to Selection | العودة للاختيار", use_container_width=True):
+    # Return to homepage 返回首页 双语
+    if st.button("Return to Homepage | العودة للصفحة الرئيسية", use_container_width=True):
         st.session_state.submitted = False
-        st.session_state.selected_sub_models = []
+        st.session_state.selected_main = []
+        st.session_state.submodel_qty = {}
         st.rerun()
 
 if __name__ == "__main__":
     main()
+
