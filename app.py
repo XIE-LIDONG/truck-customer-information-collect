@@ -144,7 +144,6 @@ def show_thank_you_page():
     st.markdown("<h2 style='text-align:center; color:#005a31;'>الحمد لله على النجاح ✅</h2>", unsafe_allow_html=True)
     st.title("✅ Submission Successful | تم الإرسال بنجاح")
     st.header("Thank you for your inquiry | شكرًا لاستفسارك الكريم")
-    st.markdown("<h4 style='text-align:center; color:#005a31;'>سنقوم بالتواصل معك في أقرب وقت بإذن الله</h4>", unsafe_allow_html=True)
     st.markdown("<h4 style='text-align:center; color:#d4ac0d;'>اللهم حفظك و بارك فيك</h4>", unsafe_allow_html=True)
     st.markdown("---")
 
