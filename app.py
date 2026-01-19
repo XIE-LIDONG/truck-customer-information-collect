@@ -29,10 +29,8 @@ CAR_PDF_MASTER = {
     # 3. 6x4 Dumper - 6x4 قلابة
     "6x4 Dumper | شاحنة قلابة 6x4": {
         "6x4 Dumper MT 390HP | شاحنة قلابة 6x4 MT 390 حصان": 
-            "JH6_6x4_MT_Dumper_390HP.pdf",
+            "JH6_6x4_MT_Dumper_390HP.pdf"
 
-        "6x4 Dumper MT 420HP | شاحنة قلابة 6x4 MT 420 حصان": 
-            "JH6_6x4_MT_Dumper_420HP.pdf"
     },
 
     # 6. 6x4 Water Tanker - 6x4 صهريج مياه
